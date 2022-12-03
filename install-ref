@@ -1,0 +1,76 @@
+Configuration management is a process for establishing and maintaining consistency of a product's performance, functional, and physical attributes with its requirements, design, and operational information throughout its life
+
+Pull Model: The nodes are dynamically updated with the configurations that are present in the server. chef , puppet
+
+Push Model: Centralized server pushes the configurations on the nodes. anisble
+
+
+Ansible is agentless, relying on temporary remote connections via SSH or Windows Remote Management which allows PowerShell execution. 
+The Ansible control node runs on most Unix-like systems that are able to run Python, including Windows with Windows Subsystem for Linux installed System configuration 
+
+ubuntu:
+sudo adduser ansible
+sudo passwd ansible
+
+
+centos 
+sudo useradd ansible
+sudo passwd ansible
+
+
+sudo visudo  ## add below line and save it #
+ansible ALL=(ALL:ALL) NOPASSWD: ALL
+
+sudo vi  /etc/ssh/sshd_config ## change no to yes like below line
+PasswordAuthentication yes
+
+sudo service sshd restart
+
+
+su - ansible
+
+## -- below installation steps do in ansible server  -- ##
+
+ref below linnk to install ansible in ubuntu server
+https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-ubuntu
+
+$ sudo apt update
+$ sudo apt install software-properties-common
+$ sudo add-apt-repository --yes --update ppa:ansible/ansible
+$ sudo apt install ansible
+
+ssh-keygen
+ssh-copy-id controller-ip
+ssh-copy-id client-ip
+
+refer links below
+
+## -- https://github.com/ansible/ansible/blob/stable-2.9/examples/ansible.cfg
+## -- https://docs.ansible.com/ansible/latest/reference_appendices/config.html#ansible-configuration-settings
+## -- https://docs.ansible.com/ansible/latest/cli/ansible-inventory.html
+sudo vi /etc/ansible/ansible.cfg
+## -- https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html
+
+## -- 
+
+[defaults]
+
+# some basic default values...
+
+#inventory      = /etc/ansible/hosts
+#library        = /usr/share/my_modules/
+#module_utils   = /usr/share/my_module_utils/
+#remote_tmp     = ~/.ansible/tmp
+#local_tmp      = ~/.ansible/tmp
+#plugin_filters_cfg = /etc/ansible/plugin_filters.yml
+#forks          = 5
+#poll_interval  = 15
+#sudo_user      = root
+#ask_sudo_pass = True
+#ask_pass      = True
+#transport      = smart
+#remote_port    = 22
+#module_lang    = C
+#module_set_locale = False
+
+ 
