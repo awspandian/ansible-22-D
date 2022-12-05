@@ -29,7 +29,7 @@ sudo service sshd restart
 
 su - ansible
 
-## -- below installation steps do in ansible server  -- ##
+## -- below installation steps do in ansible server  -- #
 
 ref below linnk to install ansible in ubuntu server
 https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-ubuntu
