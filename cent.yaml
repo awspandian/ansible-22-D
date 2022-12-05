@@ -1,0 +1,34 @@
+---
+-
+  hosts: centos
+  user: ansible
+  become: true
+  tasks:
+    - name: Install EPEL
+      yum:
+        name: epel-release
+        update_cache: yes
+        state: latest
+      when: ansible_distribution == 'CentOS'
+
+    - name: Install Nginx CentOS
+      yum:
+        name: nginx
+        update_cache: yes
+        state: latest
+      when: ansible_distribution == 'CentOS'
+
+    - name: Install Nginx Ubuntu
+      apt:
+        name: nginx
+        update_cache: yes
+        state: latest
+      when: ansible_distribution == 'Ubuntu'
+    - name: Insert Index Page
+      template:
+        src: index.html
+        dest: /usr/share/nginx/html/index.html  
+    - name: Start NGiNX
+      service:
+        name: nginx
+        state: started	

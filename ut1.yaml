@@ -1,0 +1,14 @@
+---
+- name: tomcat uninstall
+  become: yes
+  hosts: ubuntu
+  tasks:
+    - name: uninstall java 8
+      ansible.builtin.apt:
+        name: openjdk-8-jdk
+        update_cache: no
+        state: absent
+    - name: uninstall tomcat9
+      ansible.builtin.apt:
+        name: tomcat9
+        state: absent

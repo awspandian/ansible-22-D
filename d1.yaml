@@ -1,0 +1,21 @@
+---
+- name: install nginx
+  hosts: centos
+  become: yes
+  tasks:
+   - name: Install nginx
+     yum: 
+       name: epel-release
+       state: latest
+   - name: nginx install   
+     yum:
+       name: nginx
+       state: present
+   - name: service start
+     service:
+       name: nginx
+       state: started
+   - name: copy index.html
+     ansible.builtin.copy:
+       src: index.html
+       dest: /usr/share/nginx/html/index.html
