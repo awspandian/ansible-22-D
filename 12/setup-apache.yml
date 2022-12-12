@@ -1,0 +1,7 @@
+---
+- name: this playbook install httpd using role
+  hosts: dev
+  user: ansible
+  become: true
+  roles: 
+    - setup-apache

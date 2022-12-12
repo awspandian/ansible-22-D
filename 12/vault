@@ -1,0 +1,14 @@
+ansible-vault create # to create ansible vault file in the encrypted format 
+ansible-vault view   #  to view data of encryption
+ansible-vault edit   #  to edit encrypted file
+ansible-vault encrypt # to encrypt an unenrypted file
+ansible-vault decrypt # to decrypt an encrypted file
+
+--ask-vault-pass       #  to provide password while ruinning playbook
+--vault-password-file  #  to pass a vault password through a file
+
+ansible-vault create  vault-pass.yaml
+ansible-vault view  vault-pass.yaml 
+ansible-vault edit  vault-pass.yaml
+ansible-vault view  vault-pass.yaml
+ansible-vault decrypt  vault-pass.yaml

@@ -8,7 +8,6 @@
         name: openjdk-8-jdk
         update_cache: yes
         state: present
-        state: present
     - name: install tomcat9
       ansible.builtin.apt:
         name: tomcat9
